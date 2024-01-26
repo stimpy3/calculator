@@ -120,6 +120,12 @@ equal.addEventListener("click", () => {
         }
     
     }
-     screen.innerHTML = number;   
+    if(StrScreenVar.charAt(0)=='x' || StrScreenVar.charAt(0)=='/' || StrScreenVar.charAt(0)=='+')
+    {
+        screen.innerHTML="NaN";
+        StrScreenVar="";
+    }
+    else{
+     screen.innerHTML = number;   }
     });
      
