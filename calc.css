@@ -1,3 +1,4 @@
+
 *{
     margin:0;
     padding:0;
@@ -9,4 +10,55 @@ body{
     background-repeat: no-repeat;
     height: 100vh; 
     width: 95vw
+}
+
+button{
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+    background-color: #868686;
+    color: white;
+    font-size: 1.25rem;
+}
+
+button:active{
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+    background-color: #a3a3a3;
+}
+
+#CalcForFlex{
+    display: flex;
+    align-items: center;
+    height:100%;
+    width: fit-content;
+    margin-left:10%;
+}
+#CalcContainer{
+    display: grid;
+    background-color: #292929;
+    position: absolute;
+    height:80vh;
+    width: 30vw;
+    border-radius: 5%;
+    border: 3px outset #868686;
+   /* column-gap: 2%; but we could just write gap and it'll do for row and column 
+    row-gap: 2%;  specific row,column gaps */
+    padding: 1%; 
+    gap:2%;  
+
+}
+
+#screen{
+    grid-column: 3/4; 
+    background-color: black;
+    border-radius: 10px;
+    width: 90%;
+    height:100%;
+    border: 2px solid white;
+}
+
+.numbers{
+    display: inline-block;
 }
