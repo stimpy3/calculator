@@ -15,85 +15,111 @@ let multiply = document.querySelector("#multiply");
 let divide = document.querySelector("#division");
 let equal = document.querySelector("#equal");
 
-let screenVar="";
-one.addEventListener("click", () => {  
-    screenVar+="1";
-    screen.innerHTML = screenVar;
+let StrScreenVar="";
+let opIndex,num1,num2,operator;
+one.addEventListener("click", () => { 
+    StrScreenVar+="1";
+    screen.innerHTML = StrScreenVar;
 
 });
 
 two.addEventListener("click", () => {  
-    screenVar+="2";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="2";
+    screen.innerHTML = StrScreenVar;
 });
 
 three.addEventListener("click", () => {  
-    screenVar+="3";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="3";
+    screen.innerHTML = StrScreenVar;
 });
 
 four.addEventListener("click", () => {  
-    screenVar+="4";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="4";
+    screen.innerHTML = StrScreenVar;
 });
 
 five.addEventListener("click", () => {  
-    screenVar+="5";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="5";
+    screen.innerHTML = StrScreenVar;
 });
 
 six.addEventListener("click", () => {  
-    screenVar+="6";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="6";
+    screen.innerHTML = StrScreenVar;
 });
 
 seven.addEventListener("click", () => {  
-    screenVar+="7";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="7";
+    screen.innerHTML = StrScreenVar;
 });
 
 eight.addEventListener("click", () => {  
-    screenVar+="8";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="8";
+    screen.innerHTML = StrScreenVar;
 });
 
 nine.addEventListener("click", () => {  
-    screenVar+="9";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="9";
+    screen.innerHTML = StrScreenVar;
 });
 
 plus.addEventListener("click", () => {  
-    screenVar+="+";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="+";
+    screen.innerHTML = StrScreenVar;
 });
 
 minus.addEventListener("click", () => {  
-    screenVar+="-";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="-";
+    screen.innerHTML = StrScreenVar;
 });
 
 multiply.addEventListener("click", () => {  
-    screenVar+="x";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="x";
+    screen.innerHTML = StrScreenVar;
 });
 
 division.addEventListener("click", () => {  
-    screenVar+="/";
-    screen.innerHTML = screenVar;
+    StrScreenVar+="/";
+    screen.innerHTML = StrScreenVar;
 });
 
 
 equal.addEventListener("click", () => {
-    let number= Number(screenVar);
+    let number= Number(StrScreenVar);
     console.log(number); 
    // if(number==NaN) wrong way to write, it'll not work
    //use predefined function isNaN
     if(isNaN(number)){
-    screen.innerHTML ="invalid";}
-});
-
-clear.addEventListener("click", () => {
-    screen.innerHTML = "";
-    screenVar="";
-    number=null;
-});
+        // Check if the screenVar contains any of the operators
+        opIndex=StrScreenVar.indexOf('+');
+        
+        // Check for other operators if the first one is not found
+        if (opIndex===-1) {
+            opIndex=StrScreenVar.indexOf('-');
+        }
+        if (opIndex===-1) {
+            opIndex=StrScreenVar.indexOf('x');
+        }
+        if (opIndex===-1) {
+            opIndex=StrScreenVar.indexOf('/');
+        }
+        num1=Number(StrScreenVar.slice(0,opIndex));
+        num2=Number(StrScreenVar.slice(opIndex+1,StrScreenVar.length));
+        operator=StrScreenVar.charAt(opIndex);
+        if(operator=='+'){
+            number=num1+num2;
+        }
+        else if(operator=='-'){
+            number=num1-num2;
+        }
+        else if(operator=='x'){
+            number=num1*num2;
+        }
+        else{
+            number=num1/num2;
+        }
+    
+    }
+     screen.innerHTML = number;   
+    });
+     
