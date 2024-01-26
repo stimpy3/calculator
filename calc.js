@@ -128,4 +128,11 @@ equal.addEventListener("click", () => {
     else{
      screen.innerHTML = number;   }
     });
+
+clear.addEventListener("click", () => {
+    screen.innerHTML = "";
+    StrScreenVar="";
+    number=null;
+});
+
      
