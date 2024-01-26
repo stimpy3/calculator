@@ -9,11 +9,17 @@ let six = document.querySelector("#six");
 let seven = document.querySelector("#seven");
 let eight = document.querySelector("#eight");
 let nine = document.querySelector("#nine");
+let plus = document.querySelector("#plus");
+let minus = document.querySelector("#minus");
+let multiply = document.querySelector("#multiply");
+let divide = document.querySelector("#division");
+let equal = document.querySelector("#equal");
 
 let screenVar="";
 one.addEventListener("click", () => {  
     screenVar+="1";
     screen.innerHTML = screenVar;
+
 });
 
 two.addEventListener("click", () => {  
@@ -56,7 +62,38 @@ nine.addEventListener("click", () => {
     screen.innerHTML = screenVar;
 });
 
+plus.addEventListener("click", () => {  
+    screenVar+="+";
+    screen.innerHTML = screenVar;
+});
+
+minus.addEventListener("click", () => {  
+    screenVar+="-";
+    screen.innerHTML = screenVar;
+});
+
+multiply.addEventListener("click", () => {  
+    screenVar+="x";
+    screen.innerHTML = screenVar;
+});
+
+division.addEventListener("click", () => {  
+    screenVar+="/";
+    screen.innerHTML = screenVar;
+});
+
+
+equal.addEventListener("click", () => {
+    let number= Number(screenVar);
+    console.log(number); 
+   // if(number==NaN) wrong way to write, it'll not work
+   //use predefined function isNaN
+    if(isNaN(number)){
+    screen.innerHTML ="invalid";}
+});
+
 clear.addEventListener("click", () => {
     screen.innerHTML = "";
     screenVar="";
+    number=null;
 });
