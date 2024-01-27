@@ -16,7 +16,13 @@ let divide = document.querySelector("#division");
 let equal = document.querySelector("#equal");
 
 let StrScreenVar="";
-let opIndex,num1,num2,operator;
+let opIndex,operator;
+let opArr=[],opInArr=[];
+let strNumArr=[];
+let i=0,j,result=0;
+let numArray
+
+
 one.addEventListener("click", () => { 
     StrScreenVar+="1";
     screen.innerHTML = StrScreenVar;
@@ -90,49 +96,71 @@ equal.addEventListener("click", () => {
    // if(number==NaN) wrong way to write, it'll not work
    //use predefined function isNaN
     if(isNaN(number)){
-        // Check if the screenVar contains any of the operators
-        opIndex=StrScreenVar.indexOf('+');
-        
-        // Check for other operators if the first one is not found
-        if (opIndex===-1) {
-            opIndex=StrScreenVar.indexOf('-');
+        let ele_num="";
+        //operator index array maker
+        for(let char of StrScreenVar){
+            ++i;
+        if(char==='+'||char==='-'||char==='x'||char==='/'){
+            opInArr.push(i-1);
         }
-        if (opIndex===-1) {
-            opIndex=StrScreenVar.indexOf('x');
         }
-        if (opIndex===-1) {
-            opIndex=StrScreenVar.indexOf('/');
+        //......................................
+        for(j=0;j<StrScreenVar.length;j++){
+            if(StrScreenVar.charAt(j)!=='+' && StrScreenVar.charAt(j)!=='-' && StrScreenVar.charAt(j)!=='x' && StrScreenVar.charAt(j)!=='/'){
+                ele_num=ele_num+StrScreenVar.charAt(j);   
+            }
+            else{
+                strNumArr.push(ele_num);
+                ele_num="";
+                opArr.push(StrScreenVar.charAt(j));
+            }
         }
-        num1=Number(StrScreenVar.slice(0,opIndex));
-        num2=Number(StrScreenVar.slice(opIndex+1,StrScreenVar.length));
-        operator=StrScreenVar.charAt(opIndex);
-        if(operator=='+'){
-            number=num1+num2;
-        }
-        else if(operator=='-'){
-            number=num1-num2;
-        }
-        else if(operator=='x'){
-            number=num1*num2;
-        }
-        else{
-            number=num1/num2;
-        }
+        strNumArr.push(ele_num);
+
+    console.log(strNumArr);
+    numArray=strNumArr.map(Number);
+    console.log(StrScreenVar);
+    console.log(opInArr);
+    console.log(opArr);
     
     }
+
     if(StrScreenVar.charAt(0)=='x' || StrScreenVar.charAt(0)=='/' || StrScreenVar.charAt(0)=='+')
     {
         screen.innerHTML="NaN";
         StrScreenVar="";
     }
+    
     else{
-     screen.innerHTML = number;   }
-    });
+        let result = numArray[0];
 
+        for (let k = 0; k < opArr.length; k++) {
+            if (opArr[k] === '+') {
+                result += numArray[k + 1];
+            } else if (opArr[k] === '-') {
+                result -= numArray[k + 1];
+            } else if (opArr[k] === 'x') {
+                result *= numArray[k + 1];
+            } else if (opArr[k] === '/') {
+                result /= numArray[k + 1];
+            }
+        }
+        
+        screen.innerHTML = result;
+        
+   }
+
+    });
+     
 clear.addEventListener("click", () => {
     screen.innerHTML = "";
     StrScreenVar="";
-    number=null;
+    number=0;
+    opArr=[];
+    opInArr=[];
+    strNumArr=[];
+    ele_num="";
+    i=0;
+    result=0;
 });
-
      
