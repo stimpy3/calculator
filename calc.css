@@ -51,13 +51,13 @@ button:active{
     height:85vh;
     width: 30vw;
     max-width: 400px;
-    min-width:300px;
+    min-width:320px;
     max-height: 520px;
     border-radius: 5%;
     border: 3px outset #343434;
    /* column-gap: 2%; but we could just write gap and it'll do for row and column 
     row-gap: 2%;  specific row,column gaps */
-    padding: 1%; 
+    padding: 1% 1% 2% 1%;
     gap:2%;
     box-shadow: 20px 20px 20px #383838;
 }
@@ -75,6 +75,7 @@ button:active{
     height:80%;
     border: 2px inset rgb(84, 84, 84);
     margin-bottom:10%;
+    margin-top:2%;
     color: white;
     font-size: 2rem;
 }
