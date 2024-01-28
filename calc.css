@@ -86,7 +86,7 @@ button:active{
     /*background-image: radial-gradient(#1e1e1e,#101010);*/
     background-image: url("keycap.png");
     filter: brightness(90%);
-    background-size: cover;
+    background-size: contain;
 }
 
 .numbers:hover{
