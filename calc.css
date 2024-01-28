@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #909090;
+    background-image: radial-gradient(rgb(128, 1, 233), rgb(18, 18, 18));
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh; 
@@ -59,7 +59,7 @@ button:active{
     row-gap: 2%;  specific row,column gaps */
     padding: 1% 1% 2% 1%;
     gap:2%;
-    box-shadow: 20px 20px 20px #383838;
+    box-shadow: 20px 20px 20px #0f0f0f;
 }
 
 #screen{
